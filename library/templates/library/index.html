@@ -1,0 +1,19 @@
+{% extends 'library/temp.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <main class="main">
+        <img src="{% static 'library/img/main.png' %}" class="main_bg" alt="">
+        <div class="p-t-20">
+            <div class="main_title">
+                <h1>Онлайн библиотека Airex</h1>
+                <span>В онлайн библиотека вы можете сидя дома в уюте читать книги а также просмотреть какие книги есть в библиотеках</span>
+            </div>
+        </div>
+    </main>
+    <div>
+        {% include 'library/list.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'library/css/temp.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    {% block link %} {% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav_flex">
+            {% with request.resolver_match.url_name as url_name %}
+                <div><a href="{% url 'home' %}" class="text-black text-decoration-none">Airex</a></div>
+                <div><a href="{% url 'books' %}" class=" text-decoration-none {% if url_name == 'books'  %}active text-red {% else %} text-black  {% endif %}">Книги</a></div>
+                <div><a href="{% url 'authors' %}" class="text-decoration-none {% if url_name == 'authors'  %}active text-red {% else %} text-black {% endif %}">Авторы</a></div>
+                <div><a href="{% url 'libraries' %}" class="text-decoration-none {% if url_name == 'libraries'  %}active text-red {% else %} text-black {% endif %}">Библиотеки</a></div>
+            {% endwith %}
+            </div>
+            <div>
+                <a href=""> User</a>
+            </div>
+        </nav>
+    </header>
+
+   {% block content %}
+
+   {% endblock %}
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>
