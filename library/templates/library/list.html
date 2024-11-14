@@ -1,203 +1,43 @@
+<!-- templates/carousel.html -->
 <div class="">
-            <h2 class="section_name">Книги</h2>
-            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="w-100 d-block">
-                            <div class="section">
+    <h2 class="section_name">Книги</h2>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="false">
+        <div class="carousel-inner">
+            {% with books|slice:":12" as limited_books %}
+                {% for book in limited_books|slice:":4" %}
+                    {% if forloop.counter0|divisibleby:4 %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="w-100 d-block">
+                                <div class="section">
+                    {% endif %}
 
-
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-
+                    <div class="card ">
+                        <img class="card_bg" src="{{ book.img }}" alt="{{ book.title }}">
+                        <div class="card_main">
+                            <a href="book/{{ book.isbn }}"></a>
+                            <div class="card_flex">
+                                <h1>Узнать по подробнее</h1>
                             </div>
                         </div>
-
                     </div>
-                    <div class="carousel-item">
-                        <div class="w-100 d-block">
-                            <div class="section">
 
-
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
+                    {% if forloop.counter0|add:"1"|divisibleby:4 or forloop.last %}
                                 </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="w-100 d-block">
-                            <div class="section">
-
-
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card ">
-                                    <img class="card_bg"
-                                         src="https://img.knigamir.com/d04/d04fe7692f502f8ac20bf57ad00924e6.jpg"
-                                         alt="">
-                                    <div class="card_main">
-                                        <div class="card_flex">
-                                            <h1>Анна Каренина</h1>
-                                            {#                                    <div class="rating">#}
-                                            {#                                        4.9#}
-                                            {#                                    </div>#}
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>

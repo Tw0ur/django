@@ -23,7 +23,7 @@ class AuthorAdmin(admin.ModelAdmin):
 # Модель Book
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'isbn', 'publication_year', 'language')
+    list_display = ('title', 'author_id', 'isbn', 'publication_year', 'language', 'description', 'img')
     search_fields = ('title', 'isbn')
     list_filter = ('publication_year', 'language')
 

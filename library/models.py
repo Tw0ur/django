@@ -2,6 +2,7 @@ from django.db import models
 
 # Модель пользователя
 class User(models.Model):
+    user_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
@@ -19,6 +20,7 @@ class User(models.Model):
 
 # Модель библиотеки
 class Library(models.Model):
+    library_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
@@ -35,9 +37,11 @@ class Library(models.Model):
 
 # Модель автора
 class Author(models.Model):
+    author_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
-    bio = models.TextField(blank=True, null=True)
+    biography = models.TextField(blank=True, null=True)
     img = models.CharField(max_length=255,blank=True, null=True)
+    country = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         db_table = 'authors'
@@ -49,12 +53,14 @@ class Author(models.Model):
 
 # Модель книги
 class Book(models.Model):
+    book_id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=255)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     isbn = models.CharField(max_length=13, unique=True, blank=True, null=True)
     publication_year = models.IntegerField(blank=True, null=True)
     language = models.CharField(max_length=50, blank=True, null=True)
     img = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField(blank=True)
 
     class Meta:
         db_table = 'books'
@@ -73,6 +79,7 @@ class Manga(models.Model):
     publication_year = models.IntegerField(blank=True, null=True)
     language = models.CharField(max_length=50, blank=True, null=True)
     img = models.CharField(max_length=255, null=True)
+    description = models.TextField(blank=True)
 
     class Meta:
         db_table = 'manga'

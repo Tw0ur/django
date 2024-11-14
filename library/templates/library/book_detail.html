@@ -1,0 +1,17 @@
+{% extends 'library/temp.html' %}
+{% load static %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+    <div>
+                <h2>{{ book.title }}</h2>
+                <p><strong>Автор:</strong> {{ book.author.name }}</p>
+                <p><strong>Год публикации:</strong> {{ book.publication_year }}</p>
+                <p><strong>Язык:</strong> {{ book.language }}</p>
+                <p><strong>Описание:</strong> {{ book.description }}</p>
+                {% if book.img %}
+                    <img src="{{ book.img }}" alt="{{ book.title }}" width="200">
+                {% endif %}
+            </div>
+{% endblock %}
